@@ -1,21 +1,23 @@
 <h2>Battery Electric Vehicles</h2>
-<ul>
-{% for car in site.data.cars %}
-    {% assign lowestPrice = car.LowestPrice | times: 1 %}
-    {% if car.Released == 'Y' and car.Type == 'BEV' and lowestPrice <= page.maxprice and lowestPrice >= page.minprice %}
-        {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
-        <li>
-            <h4>{{ car.Year }} {{ car.Brand }} {{ car.Model }} </h4>
-            <ul>
-                <li>{{ car.BodyStyle }}</li>
-                <li>{{ car.Drive }}</li>
-                <li>Battery: {{ car.KwH }}kWh | Range: {{car.Range }}KM</li>
-                <li>Cost to Charge: ${{ costToCharge }}</li>
-                <li>HP: {{ car.HP }} | TQ: {{ car.Torque }}</li>
-                <li>0-60: {{ car.zeroToSixty }}s</li>
-                <li>${{ lowestPrice }}</li>
-            </ul>
-        </li>
-    {% endif %}
-{% endfor %}
-</ul>
+
+<div class="wrapper">
+    {% for car in site.data.cars %}
+        {% assign lowestPrice = car.LowestPrice | times: 1 %}
+        {% if car.Released == 'Y' and car.Type == 'BEV' and lowestPrice <= page.maxprice and lowestPrice >= page.minprice %}
+            {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
+            <div>
+                <h4>{{ car.Year }} {{ car.Brand }} {{ car.Model }} </h4>
+                <ul>
+                    <li>{{ car.BodyStyle }}</li>
+                    <!-- <li>{{ car.Drive }}</li> -->
+                    <li>Battery: {{ car.KwH }}kWh | Range: {{car.Range }}KM</li>
+                    <!-- <li>Cost to Charge: ${{ costToCharge }}</li> -->
+                    <li>HP: {{ car.HP }} | TQ: {{ car.Torque }}</li>
+                    <li>0-60: {{ car.zeroToSixty }}s</li>
+                    <li>${{ lowestPrice }}</li>
+                </ul>
+            </div>
+        {% endif %}
+    {% endfor %}
+    
+</div>

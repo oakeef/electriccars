@@ -7,16 +7,13 @@
             {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
             <div>
                 <h4>{{ car.Year }} {{ car.Brand }} {{ car.Model }} </h4>
-                <ul>
-                    <li>{{ car.BodyStyle }}</li>
-                    <!-- <li>{{ car.Drive }}</li> -->
-                    <li>Battery: {{ car.KwH }}kWh | Range: {{car.Range }}KM</li>
-                    <!-- <li>Cost to Charge: ${{ costToCharge }}</li> -->
-                    <li>{{ car.Displacement | round: 1 }}L {{ car.Engine }} Engine</li>
-                    <li>HP: {{ car.HP }} | TQ: {{ car.Torque }}</li>
-                    <li>0-60: {{ car.zeroToSixty }}s</li>
-                    <li>${{ lowestPrice }}</li>
-                </ul>
+                {{ car.BodyStyle }} <br>
+                🔋 <strong>{{ car.KwH }}</strong> kWh <br>
+                🚗 <strong>{{car.Range }}</strong> KM <br>
+                <strong>{{ car.Displacement | round: 1 }}</strong> L Engine <br>
+                <strong>{{ car.HP }}</strong> HP | <strong>{{ car.Torque }}</strong> TQ <br>
+                ⏱️ <strong>{{ car.zeroToSixty }}</strong> s <br>
+                💲 {{ lowestPrice }}
             </div>
         {% endif %}
     {% endfor %}

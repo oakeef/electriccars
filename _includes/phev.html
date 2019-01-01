@@ -5,15 +5,14 @@
         {% assign lowestPrice = car.LowestPrice | times: 1 %}
         {% if car.Released == 'Y' and car.Type == 'PHEV' and lowestPrice <= page.maxprice and lowestPrice >= page.minprice %}
             {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
-            <div>
-                <h4>{{ car.Year }} {{ car.Brand }} {{ car.Model }} </h4>
-                {{ car.BodyStyle }} <br>
-                🔋 <strong>{{ car.KwH }}</strong> kWh <br>
-                🚗 <strong>{{car.Range }}</strong> KM <br>
+            <div class="car-box">
+                <h4>{{ car.Brand }} {{ car.Model }} </h4>
+                <strong>{{ car.Year }}</strong> {{ car.BodyStyle }} <br>
+                🔋 <strong>{{ car.KwH }}</strong> kWh  🚗 <strong>{{car.Range }}</strong> KM <br>
                 <strong>{{ car.Displacement | round: 1 }}</strong> L Engine <br>
                 <strong>{{ car.HP }}</strong> HP | <strong>{{ car.Torque }}</strong> TQ <br>
                 ⏱️ <strong>{{ car.zeroToSixty }}</strong> s <br>
-                💲 {{ lowestPrice }}
+                <h4>Lowest Price 💲 {{ lowestPrice }}</h4>
             </div>
         {% endif %}
     {% endfor %}

@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Used Ev $40k - $50k
+title: New Ev Under $50,000
 maxprice: 50001
 minprice: 40001
-newUsed: used
+newUsed: new
 ---
 
 {% include bev.html %}

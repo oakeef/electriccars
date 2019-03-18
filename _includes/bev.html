@@ -1,19 +1,79 @@
 <h2>Battery Electric Vehicles</h2>
 
 <div>
-{% for car in site.data.cars %}
-    {% assign lowestPrice = car.LowestPrice | times: 1 %}
-    {% if car.Released == 'Y' and car.Type == 'BEV' and lowestPrice <= page.maxprice and lowestPrice >= page.minprice %}
-        {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
-        <div>
-            <h4>{{ car.Brand }} {{ car.Model }} </h4>
-            <strong>{{ car.Year }}</strong> {{ car.BodyStyle }} <br>
-            🔋 <strong>{{ car.KwH }}</strong> kWh  🚗 <strong>{{car.Range }}</strong> KM <br>
-            <strong>{{ car.HP }}</strong> HP | <strong>{{ car.Torque }}</strong> TQ <br>
-            ⏱️ <strong>{{ car.zeroToSixty }}</strong> s <br>
-            <h4>Lowest Price 💲 {{ lowestPrice }}</h4>
-        </div>
-        <hr />
-    {% endif %}
-{% endfor %}
+{% if page.newUsed == 'used' %}
+    {% for car in site.data.usedcars %}
+        {% assign lowestPrice = car.lowestPrice | times: 1 %}
+        {% if car.released == 'Y' and car.type == 'BEV' and lowestPrice <= page.maxprice and lowestPrice >= page.minprice %}
+            {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
+            <div>
+                <h4>{{ car.brand }} {{ car.model }} </h4>
+                <div>
+                    Year
+                    <strong>{{ car.year }}</strong>
+                </div>
+                <div>
+                    Style
+                    <strong>{{ car.bodystyle }}</strong>
+                </div>
+                <div>
+                    0-60
+                    <strong>{{ car.zeroToSixty }}</strong> sec
+                </div>
+                <div>
+                    HP
+                    <strong>{{ car.hp }}</strong>
+                </div>
+                <div>
+                    TQ
+                    <strong>{{ car.tq }}</strong>
+                </div> 
+                <strong>{{ car.kwh }}</strong> kWh  <strong>{{car.range }}</strong> KM
+                <div>
+                    Lowest Price
+                    <strong style="color:#2196f3;">${{ lowestPrice }}</strong>
+                </div>
+            </div>
+            <hr />
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% for car in site.data.newcars %}
+        {% assign lowestPrice = car.entryPrice | times: 1 %}
+        {% if car.released == 'Y' and car.type == 'BEV' and lowestPrice <= page.maxprice and lowestPrice >= page.minprice %}
+            {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
+            <div>
+                <h4>{{ car.brand }} {{ car.model }} </h4>
+                <div>
+                    Year
+                    <strong>{{ car.year }}</strong>
+                </div>
+                <div>
+                    Style
+                    <strong>{{ car.bodystyle }}</strong>
+                </div>
+                <div>
+                    0-60
+                    <strong>{{ car.zeroToSixty }}</strong> sec
+                </div>
+                <div>
+                    HP
+                    <strong>{{ car.hp }}</strong>
+                </div>
+                <div>
+                    TQ
+                    <strong>{{ car.tq }}</strong>
+                </div> 
+                <strong>{{ car.kwh }}</strong> kWh  <strong>{{car.range }}</strong> KM
+                <div>
+                    Entry Price
+                    <strong style="color:#2196f3;">${{ car.entryPrice }}</strong>
+                    Loaded Price
+                    <strong style="color:#2196f3;">${{ car.loadedPrice }}</strong>
+                </div>
+            </div>
+            <hr />
+        {% endif %}
+    {% endfor %}
+{% endif %}
 </div>

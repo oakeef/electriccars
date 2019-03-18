@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
+{% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
+<body class="{{ layout }}">
 
-    <div class="site">
+{% include nav.html %}
 
-    {% include header.html %}
+<div class="site-content">
+    
+    <div class="container">
 
-    <div class="site-content">
-      {{ content }}
+        <!-- Site Title
+        ================================================== -->
+
+        <div class="mainheading" style="display:none;">
+            <h1 class="sitetitle">{{ site.name }}</h1>
+            <p class="lead">
+                {{ site.description }}
+            </p>
+        </div>
+
+
+        <div class="main-content">
+            {{ content }}
+        </div>
+
     </div>
-    <!-- site-content -->
+
+    <!-- {% include beforefooter.html %} -->
 
     {% include footer.html %}
 
-    </div>
+</div>
 
-  </body>
+{% include javascript.html %}
 
+</body>
+    
 </html>

@@ -1,69 +1,52 @@
-# The main config file for your Jekyll template
+# Site
+name: "Find Your EV Canada"
+title: "Find Your EV Canada"
+description: "The best way for Canadians to find the right EV for them"
+meta_description: "Help Canadians find Electric Vehicles"
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.ico'
+paginate: 8
+baseurl: ''
+email: 'oakeef@gmail.com'
+google_analytics: ''
+disqus: ''
+sharethis: '<script async src="//platform-api.sharethis.com/js/sharethis.js#property=5c8edb731c07550011f24ea4&product="sticky-share-buttons"></script>'
 
-# Site settings
-title: Find Your EV🇨🇦
-desc: >
-  Find the perfect new or used BEV or PHEV for you with the tools available on this site.
-  Search through dymanic lists for different price ranges or do a custom search
-  based off of your own personal needs.
+# Authors
+authors:
+  evan:
+    name: Evan
+    display_name: Evan
+    gravatar: 50dcc30c6d36035c211e2ff671722333
+    email: oakeef@gmail.com
+    web: 
+    twitter: https://twitter.com/stuffwithevan
+    description: "Evan loves all cars, especially EVs"
+  author2:
+    name: 
+    display_name: 
+    gravatar: 
+    email: 
+    web: 
+    twitter: 
+    description: 
 
-url: ''      # put your website hosting url here
-baseurl: ''                 # the subpath of your site, e.g. /blog
-permalink: /:year/:title/   # how should we display posts url
-
-# Meta settings
-email: oakeef@gmail.com
-author: Evan
-twitter_username: stuffwithevan
-
-# Put your ga tracking code below
-google_analytics: 'UA-XXXXXXXX-X'
-
-# Pagination settings
-paginate: 5                           # number of posts to show per page
-paginate_path: "/articles/page:num/"  # link scheme for articles, should be letf as is
-
-# Navigation settings
-# Used to define the navigation menu items
-# > Title is the tile of the navigation item, url the url and desc is the tooltip
-navigation:
-  - title: under10
-    url: /EVunder10/
-    desc: 
-  - title: under20
-    url: /EVunder20/
-    desc: 
-  - title: under30
-    url: /EVunder30/
-    desc: 
-  - title: under40
-    url: /EVunder40/
-    desc: 
-  - title: under50
-    url: /EVunder50/
-    desc: 
-
-# Used by Jekyll to recognize what is a post and what is a page
-defaults:
-  -
-    scope:
-      path: ''
-      type: posts
-    values:
-      layout: post
-
-# Markdown parser settings
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false          # you can change this if you feel like it
-  parse_block_html: true    # allow parsing html inside markdown
-
-# Build settings
-include:
-  - _pages                  # all your pages can be put inside pages (except articles)
-exclude:
-  - README.md
-  - vendor
-plugins:
+# Plugins
+plugins: 
   - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+        
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Other
+markdown: kramdown
+highlighter: rouge

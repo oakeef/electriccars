@@ -1,18 +1,10 @@
 ---
 layout: page
 title: About
-permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+This website is a pet project of mine. I became interested in Electric Vehicles and realized there is a shortage of information on them, especially on used EV. It all started as a spreadsheet to find out how many EV were available in Canada and what the used prices looked like. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+I decided to turn the spreadsheet into a website that could help educate and inform people in Canada on how owning an EV works, why you shouldn't be afraid to buy one, even a used one. As well as all the pros and cons that come with owning an EV.
 
 
-[jekyll-organization]: https://github.com/jekyll

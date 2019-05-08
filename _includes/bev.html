@@ -8,6 +8,7 @@
             {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
             <div>
                 <h4>{{ car.brand }} {{ car.model }} </h4>
+                <img src="/assets/images/{{ car.fileName }}">
                 <div>
                     Year
                     <strong>{{ car.year }}</strong>
@@ -44,6 +45,7 @@
             {% assign costToCharge = car.KwH | times: 0.15 | round: 2 %}
             <div>
                 <h4>{{ car.brand }} {{ car.model }} </h4>
+                <img src="/assets/images/{{ car.fileName }}">
                 <div>
                     Year
                     <strong>{{ car.year }}</strong>
@@ -70,6 +72,10 @@
                     <strong style="color:#2196f3;">${{ car.entryPrice }}</strong>
                     Loaded Price
                     <strong style="color:#2196f3;">${{ car.loadedPrice }}</strong>
+                    {% if car.Incentive %}
+                    Federal Incentive
+                    <strong style="color:lightcoral;">${{ car.Incentive }}</strong>
+                    {% endif %}
                 </div>
             </div>
             <hr />
